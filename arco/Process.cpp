@@ -6,6 +6,7 @@
 #undef max
 #else
 #include <unistd.h>
+#include <stdlib.h>
 #include <sys/wait.h>
 #endif
 
@@ -113,7 +114,7 @@ int arco::ExeProcess(const char* Process, const char* ProcessDir, bool SeperateW
 #else
     if(pid_t child = fork(); child == 0) {
         chdir(ProcessDir);
-        return system(Process);
+        exit(system(Process));
     } else {
         int exitcode = 0;
         wait(&exitcode);
