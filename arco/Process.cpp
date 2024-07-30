@@ -6,6 +6,7 @@
 #undef max
 #else
 #include <unistd.h>
+#include <sys/wait.h>
 #endif
 
 #define MIN(a, b)  (((a) < (b)) ? (a) : (b))
